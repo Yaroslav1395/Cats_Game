@@ -1,5 +1,8 @@
 package Cats;
 
+import ActivitiesWithCats.Activable;
+import ActivitiesWithCats.StrategyChoose;
+
 import java.util.Objects;
 import java.util.Random;
 
@@ -9,15 +12,26 @@ public class Cat {
     private int satietyLevel;
     private int moodLevel;
     private int healthLevel;
+    private Activable activeStrategy;
 
     private final Random random = new Random();
 
     public Cat(String name) {
         this.name = name;
-        this.age = setLevel(1, 18);
-        this.satietyLevel = setLevel(0,100);
-        this.moodLevel = setLevel(0,100);
-        this.healthLevel = setLevel(0,100);
+        age = setLevel(1, 17);
+        satietyLevel = setLevel(0,100);
+        moodLevel = setLevel(0,100);
+        healthLevel = setLevel(0,100);
+        setActiveStrategy();
+    }
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+        satietyLevel = setLevel(20, 80);
+        moodLevel = setLevel(20, 80);
+        healthLevel = setLevel(20, 80);
+        setActiveStrategy();
     }
 
     public String getName() {
@@ -64,8 +78,17 @@ public class Cat {
         return random;
     }
 
-    private int setLevel(int startLimit, int entLimit){
-        return random.nextInt(entLimit) + startLimit;
+    public Activable getActiveStrategy() {
+        return activeStrategy;
+    }
+
+    public void setActiveStrategy() {
+        this.activeStrategy = StrategyChoose.chooseAgeStrategy(this);
+        catStrategyPerformedReset();
+    }
+
+    private int setLevel(int startWith, int noPlusLimit){
+        return random.nextInt(noPlusLimit) + startWith;
     }
 
     @Override
@@ -85,4 +108,22 @@ public class Cat {
         return (healthLevel + satietyLevel + moodLevel) / 3f;
     }
 
+    protected void feedTheCat(){
+        activeStrategy.feedTheCat(this);
+    }
+    protected void playWithCat(){
+        activeStrategy.playWithCat(this);
+    }
+    protected void treatCat(){
+        activeStrategy.treatCat(this);
+    }
+    protected void catStateChange(){
+        satietyLevel -= setLevel(1, 6);
+        moodLevel += setLevel(-3, 7);
+        healthLevel += setLevel(-3, 7);
+    }
+    protected void catStrategyPerformedReset(){
+        activeStrategy.setPerformed(false);
+    }
 }
+
