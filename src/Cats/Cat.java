@@ -12,9 +12,9 @@ public class Cat {
     private int satietyLevel;
     private int moodLevel;
     private int healthLevel;
-    private Activable activeStrategy;
+    private transient Activable activeStrategy;
 
-    private final Random random = new Random();
+    private final transient Random random = new Random();
 
     public Cat(String name) {
         this.name = name;
@@ -38,16 +38,8 @@ public class Cat {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public int getSatietyLevel() {
@@ -72,14 +64,6 @@ public class Cat {
 
     public void setHealthLevel(int healthLevel) {
         this.healthLevel = healthLevel;
-    }
-
-    public Random getRandom() {
-        return random;
-    }
-
-    public Activable getActiveStrategy() {
-        return activeStrategy;
     }
 
     public void setActiveStrategy() {

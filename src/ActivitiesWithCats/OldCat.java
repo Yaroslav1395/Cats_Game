@@ -11,10 +11,6 @@ public class OldCat implements Activable{
     private boolean isPerformed;
     private final Random random = new Random();
 
-    public boolean isPerformed() {
-        return isPerformed;
-    }
-
     public void setPerformed(boolean performed) {
         isPerformed = performed;
     }

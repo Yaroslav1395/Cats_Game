@@ -2,14 +2,12 @@ package Events;
 
 import Cats.Cat;
 
-import java.util.PrimitiveIterator;
-
 public enum Events {
     POISONING(1, new Poisoning()),
     TRAUMA(2, new Trauma());
 
-    private int eventId;
-    private Eventable event;
+    private final int eventId;
+    private final Eventable event;
 
     Events(int eventId, Eventable event) {
         this.eventId = eventId;

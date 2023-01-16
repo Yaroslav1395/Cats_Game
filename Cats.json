@@ -1,0 +1,46 @@
+{
+  "cats": [
+    {
+      "name": "Рыжик",
+      "age": 5,
+      "satietyLevel": 88,
+      "moodLevel": 43,
+      "healthLevel": 68
+    },
+    {
+      "name": "Чижик",
+      "age": 14,
+      "satietyLevel": 28,
+      "moodLevel": 14,
+      "healthLevel": 75
+    },
+    {
+      "name": "Толстяк",
+      "age": 16,
+      "satietyLevel": 81,
+      "moodLevel": 54,
+      "healthLevel": 2
+    },
+    {
+      "name": "Демон",
+      "age": 17,
+      "satietyLevel": 52,
+      "moodLevel": 68,
+      "healthLevel": 81
+    },
+    {
+      "name": "Пушка",
+      "age": 5,
+      "satietyLevel": 31,
+      "moodLevel": 43,
+      "healthLevel": 82
+    },
+    {
+      "name": "Маруся ",
+      "age": 2,
+      "satietyLevel": 45,
+      "moodLevel": 78,
+      "healthLevel": 50
+    }
+  ]
+}

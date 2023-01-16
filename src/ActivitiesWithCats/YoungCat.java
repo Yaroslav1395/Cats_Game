@@ -12,10 +12,6 @@ public class YoungCat implements Activable{
     private boolean eventFell;
     private final Random random = new Random();
 
-    public boolean isPerformed() {
-        return isPerformed;
-    }
-
     public void setPerformed(boolean performed) {
         isPerformed = performed;
     }
